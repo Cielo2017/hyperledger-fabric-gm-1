@@ -41,7 +41,7 @@ func InitFactories(config *FactoryOpts) error {
 		}
 
 		if config.ProviderName == "" {
-			config.ProviderName = "SW"
+			config.ProviderName = "GM"
 		}
 
 		if config.SwOpts == nil {
