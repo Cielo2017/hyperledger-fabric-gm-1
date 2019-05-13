@@ -335,9 +335,14 @@ func PublicKeyToPEM(publicKey interface{}, pwd []byte) ([]byte, error) {
 				Bytes: PubASN1,
 			},
 		), nil
+	case *sm2.PublicKey:
+		if k == nil {
+			return nil, errors.New("Invalid sm2 public key. It must be different from nil.")
+		}
 
+		return sm2.WritePublicKeytoMem(k, nil)
 	default:
-		return nil, errors.New("Invalid key type. It must be *ecdsa.PublicKey or *rsa.PublicKey")
+		return nil, errors.New("Invalid key type. It must be *ecdsa.PublicKey or *rsa.PublicKey or *sm2.PublicKey")
 	}
 }
 
