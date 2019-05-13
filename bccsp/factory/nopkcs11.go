@@ -18,6 +18,8 @@ limitations under the License.
 package factory
 
 import (
+	"strings"
+	
 	"github.com/dddengyunjie/hyperledger-fabric-gm/bccsp"
 	"github.com/pkg/errors"
 )
